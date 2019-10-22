@@ -75,11 +75,18 @@ def	exec_transition(state, machine):
 	print("(" + machine.to_state + ",", machine.tape[machine.head] + ",", \
 		machine.action + ")")
 
+'''
+print_jsonfile() prints the dictionary from the given file.
+
+Param 1: file - is a jsonfile.
+
+Returns: None.
+'''
+
 def	print_jsonfile(file):
 	print("\n", "-" * 80, sep = '')
 	print("")
 	print(file['name'].center(80))
-
 
 '''
 turing_machine() creates a finite tape,
