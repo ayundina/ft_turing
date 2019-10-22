@@ -13,6 +13,17 @@
 import json
 import sys
 
+'''
+check_input() checks if the given input for the machine contains only the
+symbols from the "alphabet" (in jsonfile).
+
+Param 1: file - is a jsonfile given as a machine description.
+
+Param 2: input - is a str to be processed by the machine.
+
+Returns: None.
+'''
+
 def	check_input(file, input):
 	for char in input:
 		if char not in file['alphabet'] or char in file['blank']:
@@ -21,6 +32,17 @@ def	check_input(file, input):
 
 #	print(state)
 #	print(transitions[state])
+
+'''
+check_transition() checks if each "state" in "transition" has:
+read, to state, write and action.
+
+Param 1: state - is a state to check in "transitions".
+
+Param 2: transitions - is a dictionary to be checked.
+
+Returns: None.
+'''
 
 def	check_transition(state, transitions):
 	for option in transitions[state]:
@@ -31,10 +53,28 @@ def	check_transition(state, transitions):
 			print("error: transition state [", state ,"] has no " \
 				"\"read\" or \"to_state\" or \"write\" or \"action\"")
 
-#	print("list.keys:		", list(file.keys()))
-#	print("n_keys:			", len(file))
-#	print("n_transitions:		", len(file['transitions']))
-#	print("n_states:		", len(file['states']))
+'''
+To access values:
+
+print("list.keys:		", list(file.keys()))
+print("n_keys:			", len(file))
+print("n_transitions:		", len(file['transitions']))
+print("n_states:		", len(file['states']))
+'''
+
+'''
+check_jsonfile() checks the given jsonfile.
+1. Checks the presence of all 7 keys and their titles of the keys
+2. Checks the number of states in "transitions"
+3. Checks if "initial" state is a part of th "states"
+4. Checks if "finals" is a sublist of "states"
+5. Iterates "states" of "transitions" to check necessary command keys:
+read, to state, write and action. Check is done in check_transition() function.
+
+Param 1: file - is a jsonfile given as a machine description
+
+Returns: None
+'''
 
 def	check_jsonfile(file):
 	keys = list(file.keys())
@@ -42,7 +82,7 @@ def	check_jsonfile(file):
 		'initial', 'finals', 'transitions']
 	if len(file) != 7 or keys != must_keys:
 		print("error: file is incorrect. Check keys:", must_keys)
-	if len(file['states']) - 1 != len(file['transitions']):
+	if len(file['states']) - len(file['finals']) != len(file['transitions']):
 		print("error: file is incorrect. Check \"states\" and \"transitions\"")
 	if file['initial'] not in file['states']:
 		print("error: \"initial\" is not in a list of \"states\"")
@@ -53,6 +93,16 @@ def	check_jsonfile(file):
 		if state not in file['finals']:
 			check_transition(state, file['transitions'])
 
+'''
+check() - reads and parses arguments from stdin.
+Checks the given "jsonfile" and "input" 
+
+Param 1: jsonfile - is a file given as a machine description
+
+Param 2: input - is a str to be processed by the machine
+
+Returns: None
+'''
 
 def	check(jsonfile, input):
 	with open(jsonfile, 'r') as fd:
