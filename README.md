@@ -1,6 +1,8 @@
 # The Turing machine
 The program is able to simulate a single headed and single tape Turing ma- chine from a json machine description given as a parameter to the program. The json machine description is sligthly simplier than a formal description of the same machine.
 
+A machine is able to compute an unary addition.
+
 This is a valid exemple of a json machine description for this project:
 
 ```
@@ -60,3 +62,6 @@ The character of the machine’s alphabet to write on the tape before moving
 the head.
 ###### action:
 Movement of the head for this transition, either LEFT, or RIGHT.
+
+# Building
+`python3 ft_turing.py unary_sub.json 111-11=`
