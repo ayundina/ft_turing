@@ -10,9 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
+import json
 import argparse
 import sys
 from file_n_input_check import check
+from turing_machine import turing_machine
+
+'''
+main() reads and parses arguments from stdin.
+Checks the given "jsonfile" and "input".
+
+Returns: None.
+'''
 
 def	main():
 	parser = argparse.ArgumentParser()
