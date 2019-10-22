@@ -10,7 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-import json
 import argparse
 import sys
 from file_n_input_check import check
@@ -28,6 +27,7 @@ def	main():
 	parser.add_argument('jsonfile', help='json description of the machine')
 	parser.add_argument('input', help='input of the machine')
 	args = parser.parse_args()
-	check(args.jsonfile, args.input)
+	file = check(args.jsonfile, args.input)
+	turing_machine(file, args.input)
 
 main()
