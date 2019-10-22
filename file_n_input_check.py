@@ -101,7 +101,7 @@ Param 1: jsonfile - is a file given as a machine description
 
 Param 2: input - is a str to be processed by the machine
 
-Returns: None
+Returns: a dictionary from opened jsonfile
 '''
 
 def	check(jsonfile, input):
@@ -112,3 +112,4 @@ def	check(jsonfile, input):
 		except:
 			print("error: jsonfile is not valid")
 	check_input(jsonfile, input)
+	return jsonfile
