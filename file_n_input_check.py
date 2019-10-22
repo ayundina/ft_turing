@@ -111,5 +111,6 @@ def	check(jsonfile, input):
 			check_jsonfile(jsonfile)
 		except:
 			print("error: jsonfile is not valid")
+			sys.exit()
 	check_input(jsonfile, input)
 	return jsonfile
