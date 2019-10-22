@@ -10,6 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
+import sys
+
 class Color:
 	HEAD = '\033[42m\033[30m'
 	ENDH = '\033[0m'
@@ -38,6 +40,9 @@ def	next_state(state, machine):
 				machine.head += 1
 			elif state[i]['action'] == 'LEFT':
 				machine.head -= 1
+			if machine.head < 0 or machine.head >= len(machine.tape):
+				print("\nerror: no solution")
+				sys.exit()
 			break
 		i += 1
 
@@ -53,7 +58,7 @@ def	exec_transition(state, machine):
 	
 
 def	turing_machine(file, input):
-	tape = input + file['blank'] * len(input)
+	tape = input + file['blank'] * (len(input) * 2)
 	machine = Turing_Machine(tape, file["initial"])
 	print("\n" + "*" * 80, sep = '')
 	while machine.to_state not in file['finals']:
