@@ -16,11 +16,6 @@ class Color:
 	HEAD = '\033[42m\033[30m'
 	ENDH = '\033[0m'
 
-'''
-self.action = True is == "Right"
-self.action = False is == "Left"
-'''
-
 class Turing_Machine:
 	def __init__(self, tape, init_state):
 		self.tape = list(tape)
