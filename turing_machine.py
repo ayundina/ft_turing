@@ -69,7 +69,8 @@ def	exec_transition(state, machine):
 	print(*machine.tape[0:machine.head], sep = '', end = '')
 	print(Color.HEAD + machine.tape[machine.head] + Color.ENDH, end = '')
 	print(*machine.tape[machine.head + 1:], sep = '', end = '')
-	print("] (" + machine.to_state + ",", machine.tape[machine.head] + ") ->", end = '')
+	print("] (" + machine.to_state + ",", end = ' ')
+	print(machine.tape[machine.head] + ") ->", end = ' ')
 	next_state(state, machine)
 	print("(" + machine.to_state + ",", machine.tape[machine.head] + ",", \
 		machine.action + ")")
@@ -92,3 +93,4 @@ def	turing_machine(file, input):
 	print("\n" + "*" * 80, sep = '')
 	while machine.to_state not in file['finals']:
 		exec_transition(file['transitions'][machine.to_state], machine)
+	print("")
