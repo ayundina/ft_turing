@@ -58,3 +58,6 @@ the head.<br/>
 
 # Building
 `python3 ft_turing.py unary_sub.json 111-11=`
+
+# Example
+![Turing_machine.gif](https://github.com/ayundina/ft_turing/blob/master/video_example/191118_1625_sub_add.gif)
