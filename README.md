@@ -40,28 +40,21 @@ This is a valid exemple of a json machine description for this project:
     }
 }
 ```
-The json fields are defined as follows:
-##### name:
-The name of the described machine
-##### alphabet:
-Both input and work alphabet of the machine merged into a single alphabet for simplicity’s sake, including the blank character. Each character of the alphabet must be a string of length strictly equal to 1.
-##### blank:
-The blank character, must be part of the alphabet, must NOT be part of the input.
+<br/>
+The json fields are defined as follows:<br/>
+**name.** The name of the described machine<br/>
+**alphabet.** Both input and work alphabet of the machine merged into a single alphabet for simplicity’s sake, including the blank character. Each character of the alphabet must be a string of length strictly equal to 1.<br/>
+**blank.** The blank character, must be part of the alphabet, must NOT be part of the input.
 states: The exhaustive list of the machine’s states names.
-initial: The initial state of the machine, must be part of the states list.
-##### finals:
-The exhaustive list of the machine’s final states. This list must be a sub-list of the states list.
-##### transitions:
-A dictionnary of the machine’s transitions indexed by state name. Each transition is a list of dictionnaries, and each dictionnary describes the transition for a given character under the head of the machine. A transition is defined as follows:
-###### read:
-The character of the machine’s alphabet on the tape under the machine’s head.
-###### to_state:
-The new state of the machine after the transition is done.
-###### write:
-The character of the machine’s alphabet to write on the tape before moving
-the head.
-###### action:
-Movement of the head for this transition, either LEFT, or RIGHT.
+initial: The initial state of the machine, must be part of the states list.<br/>
+**finals.** The exhaustive list of the machine’s final states. This list must be a sub-list of the states list.<br/>
+**transitions.** A dictionnary of the machine’s transitions indexed by state name. Each transition is a list of dictionnaries, and each dictionnary describes the transition for a given character under the head of the machine.<br/><br/>
+A transition is defined as follows:<br/>
+**read.** The character of the machine’s alphabet on the tape under the machine’s head.<br/>
+**to_state.** The new state of the machine after the transition is done.<br/>
+**write.** The character of the machine’s alphabet to write on the tape before moving
+the head.<br/>
+**action.** Movement of the head for this transition, either LEFT, or RIGHT.
 
 # Building
 `python3 ft_turing.py unary_sub.json 111-11=`
