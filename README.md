@@ -1,5 +1,5 @@
 # The Turing machine
-The program is able to simulate a single headed and single tape Turing ma- chine from a json machine description given as a parameter to the program. The json machine description is sligthly simplier than a formal description of the same machine.
+The program is able to simulate a single headed and single tape Turing machine from a json machine description given as a parameter to the program. The json machine description is sligthly simplier than a formal description of the same machine.
 
 A machine is able to compute an unary addition.
 

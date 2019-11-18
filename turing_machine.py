@@ -74,7 +74,20 @@ def	exec_transition(state, machine):
 	next_state(state, machine)
 	print("(" + machine.to_state + ",", machine.tape[machine.head] + ",", \
 		machine.action + ")")
-	
+
+'''
+print_jsonfile() prints the dictionary from the given file.
+
+Param 1: file - is a jsonfile.
+
+Returns: None.
+'''
+
+def	print_jsonfile(file):
+	print("\n", "-" * 80, sep = '')
+	print("")
+	print(file['name'].center(80))
+
 '''
 turing_machine() creates a finite tape,
 Creates a Turing_Machine class named "machine"
@@ -88,9 +101,11 @@ Returns: None.
 '''
 
 def	turing_machine(file, input):
+	print_jsonfile(file)
 	tape = input + file['blank'] * (len(input) * 2)
 	machine = Turing_Machine(tape, file["initial"])
-	print("\n" + "*" * 80, sep = '')
+	print("\n" + "-" * 80)
+	print("")
 	while machine.to_state not in file['finals']:
 		exec_transition(file['transitions'][machine.to_state], machine)
 	print("")
