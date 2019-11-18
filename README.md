@@ -40,7 +40,7 @@ This is a valid exemple of a json machine description for this project:
     }
 }
 ```
-<br/>
+
 The json fields are defined as follows:<br/>
 **name.** The name of the described machine<br/>
 **alphabet.** Both input and work alphabet of the machine merged into a single alphabet for simplicity’s sake, including the blank character. Each character of the alphabet must be a string of length strictly equal to 1.<br/>
